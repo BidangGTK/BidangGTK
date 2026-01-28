@@ -2,10 +2,11 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
+    <!-- Meta tag ini sangat penting agar web responsif di HP -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bidang GTK - Dinas Pendidikan Kota Madiun</title>
     
-    <!-- Tailwind CSS (CDN) -->
+    <!-- Tailwind CSS (CDN) - Framework CSS untuk membuat web responsif -->
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Lucide Icons (CDN) -->
@@ -34,7 +35,7 @@
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center h-20">
                 <!-- Logo / Brand -->
-                <div class="flex items-center space-x-3 cursor-pointer" onclick="navigateTo('home')">
+                <div class="flex items-center space-x-3 cursor-pointer select-none" onclick="navigateTo('home')">
                     <div class="bg-white p-1 rounded-full">
                         <i data-lucide="graduation-cap" class="text-emerald-700 w-8 h-8"></i>
                     </div>
@@ -44,7 +45,7 @@
                     </div>
                 </div>
 
-                <!-- Desktop Menu -->
+                <!-- Desktop Menu (Hidden on Mobile) -->
                 <div class="hidden md:flex space-x-6 font-medium" id="desktop-menu">
                     <button onclick="navigateTo('home')" class="nav-btn hover:text-yellow-300 transition text-yellow-300 border-b-2 border-yellow-300" data-target="home">Beranda</button>
                     <button onclick="navigateTo('tendik')" class="nav-btn hover:text-yellow-300 transition" data-target="tendik">Tendik</button>
@@ -53,23 +54,23 @@
                     <button onclick="navigateTo('kontak')" class="nav-btn hover:text-yellow-300 transition" data-target="kontak">Kontak</button>
                 </div>
 
-                <!-- Mobile Menu Button -->
+                <!-- Mobile Menu Button (Visible only on Mobile) -->
                 <div class="md:hidden">
-                    <button onclick="toggleMobileMenu()" class="text-white hover:text-yellow-300 focus:outline-none">
-                        <i data-lucide="menu" id="menu-icon" class="w-7 h-7"></i>
-                        <i data-lucide="x" id="close-icon" class="w-7 h-7 hidden"></i>
+                    <button onclick="toggleMobileMenu()" class="text-white hover:text-yellow-300 focus:outline-none p-2">
+                        <i data-lucide="menu" id="menu-icon" class="w-8 h-8"></i>
+                        <i data-lucide="x" id="close-icon" class="w-8 h-8 hidden"></i>
                     </button>
                 </div>
             </div>
         </div>
 
-        <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden bg-emerald-800 py-4 px-4 space-y-3 shadow-inner transition-all duration-300">
-            <button onclick="navigateTo('home')" class="mobile-nav-btn block w-full text-left text-white py-2 hover:bg-emerald-900 px-2 rounded font-medium bg-emerald-900" data-target="home">Beranda</button>
-            <button onclick="navigateTo('tendik')" class="mobile-nav-btn block w-full text-left text-white py-2 hover:bg-emerald-900 px-2 rounded font-medium" data-target="tendik">Tendik</button>
-            <button onclick="navigateTo('guru')" class="mobile-nav-btn block w-full text-left text-white py-2 hover:bg-emerald-900 px-2 rounded font-medium" data-target="guru">Guru</button>
-            <button onclick="navigateTo('ppsdm')" class="mobile-nav-btn block w-full text-left text-white py-2 hover:bg-emerald-900 px-2 rounded font-medium" data-target="ppsdm">PPSDM</button>
-            <button onclick="navigateTo('kontak')" class="mobile-nav-btn block w-full text-left text-white py-2 hover:bg-emerald-900 px-2 rounded font-medium" data-target="kontak">Kontak</button>
+        <!-- Mobile Menu Dropdown (Responsive Drawer) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-emerald-800 py-4 px-4 space-y-3 shadow-inner transition-all duration-300 border-t border-emerald-600">
+            <button onclick="navigateTo('home')" class="mobile-nav-btn block w-full text-left text-white py-3 px-4 hover:bg-emerald-900 rounded-lg font-medium bg-emerald-900 text-lg" data-target="home">Beranda</button>
+            <button onclick="navigateTo('tendik')" class="mobile-nav-btn block w-full text-left text-white py-3 px-4 hover:bg-emerald-900 rounded-lg font-medium text-lg" data-target="tendik">Tendik</button>
+            <button onclick="navigateTo('guru')" class="mobile-nav-btn block w-full text-left text-white py-3 px-4 hover:bg-emerald-900 rounded-lg font-medium text-lg" data-target="guru">Guru</button>
+            <button onclick="navigateTo('ppsdm')" class="mobile-nav-btn block w-full text-left text-white py-3 px-4 hover:bg-emerald-900 rounded-lg font-medium text-lg" data-target="ppsdm">PPSDM</button>
+            <button onclick="navigateTo('kontak')" class="mobile-nav-btn block w-full text-left text-white py-3 px-4 hover:bg-emerald-900 rounded-lg font-medium text-lg" data-target="kontak">Kontak</button>
         </div>
     </nav>
 
@@ -79,7 +80,7 @@
         <!-- PAGE: HOME -->
         <section id="home" class="page-section animate-fade-in block">
             <!-- Hero Section -->
-            <div class="relative bg-gray-100 h-96 overflow-hidden">
+            <div class="relative bg-gray-100 h-64 md:h-96 overflow-hidden">
                 <img 
                     src="https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" 
                     alt="Pendidikan Madiun" 
@@ -87,15 +88,15 @@
                 >
                 <div class="absolute inset-0 bg-gradient-to-r from-emerald-900/80 to-transparent flex items-center">
                     <div class="container mx-auto px-6">
-                        <h1 class="text-4xl md:text-5xl font-bold text-white mb-4 drop-shadow-md">
+                        <h1 class="text-3xl md:text-5xl font-bold text-white mb-2 md:mb-4 drop-shadow-md">
                             Selamat Datang
                         </h1>
-                        <p class="text-xl text-yellow-300 font-medium max-w-2xl drop-shadow-sm">
+                        <p class="text-lg md:text-xl text-yellow-300 font-medium max-w-2xl drop-shadow-sm leading-snug">
                             Di Portal Resmi Bidang Guru dan Tenaga Kependidikan<br/>Dinas Pendidikan Kota Madiun
                         </p>
                         <button 
                             onclick="navigateTo('ppsdm')"
-                            class="mt-6 bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition hover:scale-105 flex items-center"
+                            class="mt-4 md:mt-6 bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-6 md:py-3 md:px-8 rounded-full shadow-lg transform transition hover:scale-105 flex items-center"
                         >
                             Layanan PPSDM <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
                         </button>
@@ -103,7 +104,8 @@
                 </div>
             </div>
 
-            <div class="container mx-auto px-4 py-12">
+            <div class="container mx-auto px-4 py-8 md:py-12">
+                <!-- Responsive Grid: 1 column on mobile, 3 columns on large screens -->
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     <!-- Main Menu Cards -->
                     <div class="lg:col-span-2 space-y-6">
@@ -111,47 +113,46 @@
                         
                         <!-- Card Tendik -->
                         <div onclick="navigateTo('tendik')" class="bg-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-xl hover:border-emerald-300 transition cursor-pointer flex items-start group">
-                            <div class="bg-emerald-100 p-4 rounded-full mr-4 group-hover:bg-emerald-600 transition">
+                            <div class="bg-emerald-100 p-4 rounded-full mr-4 group-hover:bg-emerald-600 transition flex-shrink-0">
                                 <i data-lucide="users" class="text-emerald-600 group-hover:text-white w-8 h-8"></i>
                             </div>
                             <div>
                                 <h3 class="text-xl font-bold text-gray-800 group-hover:text-emerald-700">Seksi Pemetaan dan Distribusi Tenaga Kependidikan</h3>
-                                <p class="text-gray-600 mt-2">Informasi, data, dan pengelolaan distribusi tenaga kependidikan di Kota Madiun.</p>
+                                <p class="text-gray-600 mt-2 text-sm md:text-base">Informasi, data, dan pengelolaan distribusi tenaga kependidikan di Kota Madiun.</p>
                             </div>
                         </div>
 
                         <!-- Card Guru -->
                         <div onclick="navigateTo('guru')" class="bg-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-xl hover:border-yellow-400 transition cursor-pointer flex items-start group">
-                            <div class="bg-yellow-100 p-4 rounded-full mr-4 group-hover:bg-yellow-500 transition">
+                            <div class="bg-yellow-100 p-4 rounded-full mr-4 group-hover:bg-yellow-500 transition flex-shrink-0">
                                 <i data-lucide="book-open" class="text-yellow-600 group-hover:text-white w-8 h-8"></i>
                             </div>
                             <div>
                                 <h3 class="text-xl font-bold text-gray-800 group-hover:text-yellow-600">Seksi Pemetaan dan Distribusi Guru</h3>
-                                <p class="text-gray-600 mt-2">Manajemen data guru, rotasi, dan penempatan guru sesuai kebutuhan sekolah.</p>
+                                <p class="text-gray-600 mt-2 text-sm md:text-base">Manajemen data guru, rotasi, dan penempatan guru sesuai kebutuhan sekolah.</p>
                             </div>
                         </div>
 
                         <!-- Card PPSDM -->
                         <div onclick="navigateTo('ppsdm')" class="bg-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-xl hover:border-orange-400 transition cursor-pointer flex items-start group">
-                            <div class="bg-orange-100 p-4 rounded-full mr-4 group-hover:bg-orange-500 transition">
+                            <div class="bg-orange-100 p-4 rounded-full mr-4 group-hover:bg-orange-500 transition flex-shrink-0">
                                 <i data-lucide="award" class="text-orange-600 group-hover:text-white w-8 h-8"></i>
                             </div>
                             <div>
                                 <h3 class="text-xl font-bold text-gray-800 group-hover:text-orange-600">Seksi Pembinaan dan Peningkatan SDM GTK</h3>
-                                <p class="text-gray-600 mt-2">Layanan pengembangan karir, izin belajar, dan kesejahteraan GTK.</p>
+                                <p class="text-gray-600 mt-2 text-sm md:text-base">Layanan pengembangan karir, izin belajar, dan kesejahteraan GTK.</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- Highlights Sidebar -->
-                    <div class="lg:col-span-1">
+                    <div class="lg:col-span-1 mt-8 lg:mt-0">
                         <div class="bg-emerald-50 rounded-xl p-6 border border-emerald-100 h-full">
                             <h2 class="text-xl font-bold text-emerald-800 mb-6 flex items-center">
                                 <i data-lucide="book-open" class="mr-2 w-5 h-5"></i> Highlights
                             </h2>
                             
                             <div class="space-y-4">
-                                <!-- UPDATE LINK: Laporan Absensi Mingguan -->
                                 <a href="https://tinyurl.com/Absensimingguan" target="_blank" class="block group">
                                     <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-orange-500 hover:shadow-md transition flex items-center justify-between">
                                         <div>
@@ -162,7 +163,6 @@
                                     </div>
                                 </a>
 
-                                <!-- UPDATE LINK: Input Sertifikat Tendik 2026 -->
                                 <a href="https://tinyurl.com/SertifikatTendik2026" target="_blank" class="block group">
                                     <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-yellow-400 hover:shadow-md transition flex items-center justify-between">
                                         <div>
@@ -186,8 +186,7 @@
 
                             <div class="mt-8 bg-orange-100 p-4 rounded-lg text-center">
                                 <p class="text-orange-800 font-semibold text-sm">Butuh Bantuan Teknis?</p>
-                                <!-- UPDATED BUTTON: Navigasi ke Kontak -->
-                                <button onclick="navigateTo('kontak')" class="mt-2 bg-orange-500 text-white text-sm py-2 px-4 rounded hover:bg-orange-600 w-full transition">
+                                <button onclick="navigateTo('kontak')" class="mt-2 bg-orange-500 text-white text-sm py-2 px-4 rounded hover:bg-orange-600 w-full transition shadow-sm">
                                     Hubungi Admin
                                 </button>
                             </div>
@@ -281,14 +280,13 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
                     
                     <!-- Card 1: CUTI -->
-                    <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-1 transition duration-300 border-t-4 border-orange-400 group">
-                        <div class="p-6">
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-1 transition duration-300 border-t-4 border-orange-400 group flex flex-col h-full">
+                        <div class="p-6 flex-grow">
                             <div class="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center mb-4 group-hover:bg-orange-500 transition">
                                 <i data-lucide="calendar" class="text-orange-600 group-hover:text-white w-7 h-7"></i>
                             </div>
                             <h3 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-orange-600">CUTI</h3>
                             <p class="text-gray-600 text-sm">Layanan pengajuan Cuti Tahunan, Cuti Besar, dan Cuti Melahirkan.</p>
-                            <!-- UPDATE LINK: Cuti -->
                             <a href="https://drive.google.com/drive/folders/1mKiDuANKZlDLw0Kn-Ikh-3BwB_w1389a?usp=sharing" target="_blank" class="mt-4 text-orange-600 font-semibold text-sm flex items-center hover:underline inline-block">
                                 Lihat Syarat <i data-lucide="arrow-right" class="ml-1 w-3 h-3 inline"></i>
                             </a>
@@ -296,14 +294,13 @@
                     </div>
 
                     <!-- Card 2: IZIN TUGAS BELAJAR -->
-                    <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-1 transition duration-300 border-t-4 border-orange-400 group">
-                        <div class="p-6">
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-1 transition duration-300 border-t-4 border-orange-400 group flex flex-col h-full">
+                        <div class="p-6 flex-grow">
                             <div class="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center mb-4 group-hover:bg-orange-500 transition">
                                 <i data-lucide="graduation-cap" class="text-orange-600 group-hover:text-white w-7 h-7"></i>
                             </div>
                             <h3 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-orange-600">IZIN TUGAS BELAJAR</h3>
                             <p class="text-gray-600 text-sm">Administrasi izin melanjutkan pendidikan ke jenjang lebih tinggi.</p>
-                            <!-- UPDATE LINK: Izin Tugas Belajar -->
                             <a href="https://tinyurl.com/IzinTugasBelajar" target="_blank" class="mt-4 text-orange-600 font-semibold text-sm flex items-center hover:underline inline-block">
                                 Lihat Syarat <i data-lucide="arrow-right" class="ml-1 w-3 h-3 inline"></i>
                             </a>
@@ -311,14 +308,13 @@
                     </div>
 
                     <!-- Card 3: IZIN PERNIKAHAN -->
-                    <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-1 transition duration-300 border-t-4 border-orange-400 group">
-                        <div class="p-6">
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-1 transition duration-300 border-t-4 border-orange-400 group flex flex-col h-full">
+                        <div class="p-6 flex-grow">
                             <div class="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center mb-4 group-hover:bg-orange-500 transition">
                                 <i data-lucide="heart" class="text-orange-600 group-hover:text-white w-7 h-7"></i>
                             </div>
                             <h3 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-orange-600">IZIN PERNIKAHAN</h3>
                             <p class="text-gray-600 text-sm">Laporan dan izin pernikahan bagi pegawai.</p>
-                            <!-- UPDATE LINK: Izin Pernikahan -->
                             <a href="https://tinyurl.com/IzinPernikahan" target="_blank" class="mt-4 text-orange-600 font-semibold text-sm flex items-center hover:underline inline-block">
                                 Lihat Syarat <i data-lucide="arrow-right" class="ml-1 w-3 h-3 inline"></i>
                             </a>
@@ -326,14 +322,13 @@
                     </div>
 
                     <!-- Card 4: IZIN PERCERAIAN -->
-                    <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-1 transition duration-300 border-t-4 border-orange-400 group">
-                        <div class="p-6">
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-1 transition duration-300 border-t-4 border-orange-400 group flex flex-col h-full">
+                        <div class="p-6 flex-grow">
                             <div class="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center mb-4 group-hover:bg-orange-500 transition">
                                 <i data-lucide="user-minus" class="text-orange-600 group-hover:text-white w-7 h-7"></i>
                             </div>
                             <h3 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-orange-600">IZIN PERCERAIAN</h3>
                             <p class="text-gray-600 text-sm mb-4">Proses administrasi terkait izin perceraian.</p>
-                            <!-- UPDATED: Text instead of link -->
                             <p class="text-xs text-orange-700 bg-orange-50 p-3 rounded border border-orange-100 italic">
                                 Untuk mengurus izin perceraian silahkan datang ke Bidang GTK Dinas Pendidikan Kota Madiun pada saat jam kerja.
                             </p>
@@ -341,14 +336,13 @@
                     </div>
 
                     <!-- Card 5: TUNJANGAN KELUARGA -->
-                    <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-1 transition duration-300 border-t-4 border-orange-400 group">
-                        <div class="p-6">
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-1 transition duration-300 border-t-4 border-orange-400 group flex flex-col h-full">
+                        <div class="p-6 flex-grow">
                             <div class="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center mb-4 group-hover:bg-orange-500 transition">
                                 <i data-lucide="user-plus" class="text-orange-600 group-hover:text-white w-7 h-7"></i>
                             </div>
                             <h3 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-orange-600">TUNJANGAN KELUARGA</h3>
                             <p class="text-gray-600 text-sm">Pendaftaran istri/suami/anak untuk tunjangan (KP4).</p>
-                            <!-- UPDATE LINK: Tunjangan Keluarga -->
                             <a href="https://tinyurl.com/TunjanganKeluargaNew" target="_blank" class="mt-4 text-orange-600 font-semibold text-sm flex items-center hover:underline inline-block">
                                 Lihat Syarat <i data-lucide="arrow-right" class="ml-1 w-3 h-3 inline"></i>
                             </a>
@@ -356,14 +350,13 @@
                     </div>
 
                     <!-- Card 6: PENCANTUMAN GELAR -->
-                    <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-1 transition duration-300 border-t-4 border-orange-400 group">
-                        <div class="p-6">
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-1 transition duration-300 border-t-4 border-orange-400 group flex flex-col h-full">
+                        <div class="p-6 flex-grow">
                             <div class="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center mb-4 group-hover:bg-orange-500 transition">
                                 <i data-lucide="award" class="text-orange-600 group-hover:text-white w-7 h-7"></i>
                             </div>
                             <h3 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-orange-600">PENCANTUMAN GELAR</h3>
                             <p class="text-gray-600 text-sm">Update data kepegawaian untuk gelar pendidikan baru.</p>
-                            <!-- UPDATE LINK: Pencantuman Gelar -->
                             <a href="https://s.id/pencantumangelar_kotamadiun" target="_blank" class="mt-4 text-orange-600 font-semibold text-sm flex items-center hover:underline inline-block">
                                 Lihat Syarat <i data-lucide="arrow-right" class="ml-1 w-3 h-3 inline"></i>
                             </a>
@@ -382,7 +375,7 @@
             </div>
             <div class="container mx-auto px-4 max-w-4xl">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- UPDATED: Informasi Alamat -->
+                    <!-- Informasi Alamat -->
                     <div class="bg-white p-8 rounded-xl shadow-lg">
                         <h3 class="text-xl font-bold text-emerald-800 mb-6 border-b pb-2">Informasi Alamat</h3>
                         <div class="space-y-4">
@@ -395,13 +388,11 @@
                                     Kota Madiun, Jawa Timur, 63139
                                 </p>
                             </div>
-                            <!-- Phone and Email removed as requested -->
                         </div>
                     </div>
 
                     <div class="bg-white p-8 rounded-xl shadow-lg">
                         <h3 class="text-xl font-bold text-emerald-800 mb-6 border-b pb-2">Kirim Pesan via WhatsApp</h3>
-                        <!-- UPDATED FORM: Menggunakan fungsi sendToWhatsApp() -->
                         <form class="space-y-4" onsubmit="event.preventDefault(); sendToWhatsApp();">
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label>
@@ -420,7 +411,7 @@
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Pesan</label>
                                 <textarea id="wa-pesan" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-none h-24" placeholder="Tulis pesan Anda..." required></textarea>
                             </div>
-                            <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2 rounded-lg transition flex justify-center items-center">
+                            <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2 rounded-lg transition flex justify-center items-center shadow">
                                 Kirim ke WhatsApp <i data-lucide="send" class="ml-2 w-4 h-4"></i>
                             </button>
                         </form>
@@ -450,61 +441,35 @@
 
         // WhatsApp Integration Function
         function sendToWhatsApp() {
-            // 1. Ambil nilai dari form
             const nama = document.getElementById('wa-nama').value;
             const keperluan = document.getElementById('wa-keperluan').value;
             const pesan = document.getElementById('wa-pesan').value;
-            
-            // 2. Tentukan nomor WA tujuan (Format internasional tanpa +)
             const nomorWA = '6282229303060';
-
-            // 3. Format pesan teks (Gunakan %0A untuk baris baru)
-            // Format:
-            // Halo Admin GTK, saya ingin bertanya.
-            // 
-            // Nama: [Nama]
-            // Keperluan: [Keperluan]
-            // Pesan: [Pesan]
-            
             const text = `Halo Admin GTK, saya ingin bertanya.%0A%0A*Nama:* ${nama}%0A*Keperluan:* ${keperluan}%0A*Pesan:* ${pesan}`;
-
-            // 4. Buat URL
-            // Menggunakan encodeURIComponent untuk memastikan karakter khusus (spasi, dll) aman di URL
-            // Namun karena kita menyusun manual string di atas dengan template literal sederhana, 
-            // kita bisa langsung passing atau encode bagian variabelnya saja jika perlu.
-            // Untuk amannya, kita encode pesan full-nya lagi di bagian url parameter.
-            
             const url = `https://wa.me/${nomorWA}?text=${text}`;
-
-            // 5. Buka di tab baru
             window.open(url, '_blank');
         }
 
         // Navigation Function
         function navigateTo(pageId) {
-            // 1. Hide all page sections
             const sections = document.querySelectorAll('.page-section');
             sections.forEach(section => {
                 section.classList.add('hidden');
                 section.classList.remove('block');
             });
 
-            // 2. Show the target section
             const targetSection = document.getElementById(pageId);
             if (targetSection) {
                 targetSection.classList.remove('hidden');
                 targetSection.classList.add('block');
-                
-                // Re-trigger animation
                 targetSection.classList.remove('animate-fade-in');
-                void targetSection.offsetWidth; // Trigger reflow
+                void targetSection.offsetWidth; 
                 targetSection.classList.add('animate-fade-in');
             }
 
-            // 3. Scroll to top
             window.scrollTo(0, 0);
 
-            // 4. Update Desktop Navigation State
+            // Update Desktop State
             const desktopBtns = document.querySelectorAll('.nav-btn');
             desktopBtns.forEach(btn => {
                 if (btn.getAttribute('data-target') === pageId) {
@@ -514,17 +479,17 @@
                 }
             });
 
-            // 5. Update Mobile Navigation State
+            // Update Mobile State
             const mobileBtns = document.querySelectorAll('.mobile-nav-btn');
             mobileBtns.forEach(btn => {
                 if (btn.getAttribute('data-target') === pageId) {
-                    btn.classList.add('bg-emerald-900');
+                    btn.classList.add('bg-emerald-900', 'text-yellow-300');
                 } else {
-                    btn.classList.remove('bg-emerald-900');
+                    btn.classList.remove('bg-emerald-900', 'text-yellow-300');
                 }
             });
 
-            // 6. Close Mobile Menu if open
+            // Close Mobile Menu if open
             const mobileMenu = document.getElementById('mobile-menu');
             if (!mobileMenu.classList.contains('hidden')) {
                 toggleMobileMenu();
@@ -538,23 +503,19 @@
             const closeIcon = document.getElementById('close-icon');
 
             if (mobileMenu.classList.contains('hidden')) {
-                // Open Menu
                 mobileMenu.classList.remove('hidden');
                 menuIcon.classList.add('hidden');
                 closeIcon.classList.remove('hidden');
             } else {
-                // Close Menu
                 mobileMenu.classList.add('hidden');
                 menuIcon.classList.remove('hidden');
                 closeIcon.classList.add('hidden');
             }
         }
 
-        // Initialize default state (already handled by HTML structure, but good for safety)
         document.addEventListener('DOMContentLoaded', () => {
             navigateTo('home');
         });
-
     </script>
 </body>
 </html>
